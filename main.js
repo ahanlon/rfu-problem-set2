@@ -25,7 +25,7 @@
 
 	var swapCase = function(str){
 		newString = '';
-		for (i = 0; i < str.length; i++){
+		for (var i = 0; i < str.length; i++){
 			if ( str[i] === str[i].toUpperCase() ){
 				newString += str[i].toLowerCase();
 			}
@@ -37,8 +37,72 @@
 	};
 	console.log( swapCase('Hello World') );
 
+//-----------------------------------------------------
+
+// 3. Bonus: Write a function letterCount that takes a single string parameter and returns the first word with the greatest number of repeated letters. For example: "Today, is the greatest day ever!" should return greatest because it has 2 e's (and 2 t's) and it comes before ever which also has 2 e's. If there are no words with repeating letters return -1. Words will be separated by single spaces.
+
+	// create function letterCount that takes a string
+	// change string to an array of strings using the space as the delimiter
+	// loop over the array to analyze each string
+	// look for dupelicate values in each string and create an object with the string as the key and the # of dupes as the value, if no dupes, don't push anything
+	// loop (using for in loop) over the new obj to look for the greatest value and then return the key of the highest value
+	
+	
+
+	var myStr = "Today, is the greatest day ever!"
+	var getFrequency = function(string) {
+	    var freq = {};
+	    for (var i=0; i<string.length;i++) {
+	        var character = string.charAt(i);
+	        if (freq[character]) {
+	           freq[character]++;
+	        } else {
+	           freq[character] = 1;
+	        }
+	    }
+	    console.log(freq)
+	    return freq;
+	};
+// console.log(getFrequency(myStr));
+	// look for dupes in each object in the array and assign the value to the string
+	var findVal = function(obj){
+		for (var key in obj){
+			if (obj[key] === 2){
+				var num = 1;
+			}
+		}
+	};
+
+	var myStr = "Today, is the greatest day ever!"
+	var letterCount = function(str){
+		//split string into an array of strings
+		var strArray = str.split(' ');
+		var dupeObjs = []
+		//loop over the array of strings
+		for (var i = 0; i < strArray.length; i++){
+			var index = strArray[i];
+
+			dupeObjs.push( getFrequency(index) );	
+		}
+		for ( var i=0; i<dupeObjs.length; i++){
+			var myObj = dupeObjs[i];
+			if (findVal(myObj) > 0)
+				var result = str;
 
 
+
+			console.log(dupeObjs);
+
+		}
+	console.log(result)
+
+
+
+
+
+
+	};
+	console.log( letterCount(myStr) );
 
 
 
